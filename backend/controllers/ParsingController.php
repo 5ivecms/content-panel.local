@@ -52,7 +52,7 @@ class ParsingController extends AppController
                     $curl->setOpt(CURLOPT_SSL_VERIFYPEER, 0);
                     $curl->setTimeout(60);
                     $curl->setHeader('Authorization', 'Bearer ' . $domain['token']);
-                    $curl->get($domain['domain'] . Domain::PARSING_URL);
+                    $curl->setUrl($domain['domain'] . Domain::PARSING_URL);
                     $multiCurl->addCurl($curl);
                 }
                 $multiCurl->start();
